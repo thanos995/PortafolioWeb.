@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Alejandro Ardila, Auxiliar Contable en formación. Mi compromiso es ayudar a otros y adaptarme a la contabilidad virtual con IA.">
+    <meta name="keywords" content="Alejandro Ardila, Auxiliar Contable, Contabilidad, Finanzas, Aprendizaje, IA en Contabilidad, Portafolio Web, Colombia">
+    <meta name="author" content="Alejandro Ardila">
+
+    <title>Alejandro Ardila - Auxiliar Contable</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Variables CSS para una paleta de colores consistente */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro casi negro */
+            --secondary-color: #3498db; /* Azul brillante */
+            --accent-color: #e67e22; /* Naranja vibrante */
+            --text-color: #333;
+            --light-bg: #f8f9fa; /* Fondo muy claro */
+            --dark-bg: #ecf0f1; /* Gris claro para secciones */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+        }
+
+        /* Contenedor principal para centrar el contenido */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+            overflow: hidden; /* Para contener elementos flotantes si los hubiera */
+        }
+
+        /* Barra de navegación */
+        nav {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            position: sticky; /* Fija la navegación al hacer scroll */
+            top: 0;
+            z-index: 1000; /* Asegura que esté por encima de otros elementos */
+            border-radius: 0.75rem 0.75rem 0 0; /* Esquinas redondeadas arriba */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        nav .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav .nav-list li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.75rem 1.25rem;
+            display: block;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border-radius: 0.5rem;
+        }
+
+        nav .nav-list li a:hover,
+        nav .nav-list li a.active {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        /* Sección de cabecera (Hero Section) */
+        header {
+            text-align: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%); /* Degradado */
+            color: #ffffff;
+            border-radius: 0 0 0.75rem 0.75rem; /* Esquinas redondeadas abajo */
+            margin-top: -1rem; /* Ajuste para que se vea continuo con la nav */
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #d35400; /* Tono más oscuro del naranja */
+            transform: translateY(-2px);
+        }
+
+        /* Estilos generales de sección */
+        section {
+            padding: 3rem 1.5rem;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            opacity: 0; /* Para la animación de aparición */
+            transform: translateY(30px); /* Para la animación de aparición */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            border-radius: 0.75rem; /* Asegura que cada sección tenga bordes redondeados */
+            margin-bottom: 1.5rem; /* Espacio entre secciones */
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 1rem;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.02); /* Pequeño zoom al pasar el ratón */
+        }
+
+        .content-box {
+            background-color: var(--dark-bg);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #dcdcdc;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-box p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .content-box ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .content-box ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sección de Contacto */
+        #contact .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        #contact .contact-item {
+            flex: 1 1 300px; /* Flexible item, min width 300px */
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--dark-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        #contact .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        #contact .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        #contact .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        #contact .contact-item p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Formulario de Contacto (estilos básicos) */
+        #contact form {
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1.5rem;
+            background-color: var(--dark-bg);
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        #contact form input,
+        #contact form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box; /* Incluye padding en el ancho */
+        }
+
+        #contact form textarea {
+            resize: vertical; /* Permite redimensionar verticalmente */
+            min-height: 100px;
+        }
+
+        #contact form button {
+            background-color: var(--secondary-color);
+            color: #ffffff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #contact form button:hover {
+            background-color: #2980b9; /* Tono más oscuro del azul */
+            transform: translateY(-2px);
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border-radius: 0 0 0.75rem 0.75rem;
+            font-size: 0.9rem;
+            margin-top: 1.5rem; /* Espacio antes del footer */
+        }
+
+        /* Botón "Volver arriba" */
+        #back-to-top {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, opacity 0.3s ease;
+            z-index: 999;
+        }
+
+        #back-to-top:hover {
+            background-color: #2980b9;
+            opacity: 0.9;
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            nav .nav-list {
+                flex-direction: column; /* Apila los elementos de navegación en móviles */
+                align-items: center;
+            }
+            nav .nav-list li a {
+                padding: 0.5rem 1rem;
+                width: 100%;
+                text-align: center;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            .container {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+            #contact .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            #contact .contact-item {
+                flex: none;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="#hero" class="active">Inicio</a></li>
+            <li><a href="#about">Sobre Mí</a></li>
+            <li><a href="#accounting-content">Contabilidad</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header id="hero">
+            <h1>Transformando Números en Estrategias</h1>
+            <p>Soy Alejandro Ardila, Auxiliar Contable en formación. Mi misión es brindar claridad y solidez a tus finanzas.</p>
+            <a href="#contact" class="cta-button">Contáctame</a>
+            </header>
+
+        <section id="about">
+            <h2>Sobre Mí</h2>
+            <div class="image-container">
+                <img src="https://placehold.co/400x400/8e44ad/ffffff?text=Alejandro+Animado" alt="Muñeco animado representando a Alejandro Ardila" class="rounded-full w-48 h-48 object-cover mx-auto mb-4 border-4 border-secondary-color shadow-lg">
+            </div>
+            <p>
+                Soy **Alejandro Ardila**, un **Auxiliar Contable** en constante aprendizaje, apasionado por el mundo de las finanzas y la contabilidad. Estoy desarrollando este portafolio web como un proyecto personal para adaptarme a la actualidad virtual y demostrar mi compromiso con la profesión.
+            </p>
+            <p>
+                Mi principal motivación es **ayudar a los demás** a comprender y gestionar sus finanzas de manera efectiva. Estoy explorando activamente cómo la **Inteligencia Artificial** puede optimizar los procesos contables, y busco alcanzar la expectativa de poder usar estas herramientas avanzadas para ofrecer soluciones más eficientes y precisas en el futuro.
+            </p>
+            <p>
+                Este portal no solo es una muestra de mis habilidades técnicas en desarrollo web, sino también un reflejo de mi dedicación a la mejora continua y mi deseo de contribuir al éxito financiero de quienes confíen en mi trabajo.
+            </p>
+        </section>
+
+        <section id="accounting-content">
+            <h2>Mi Expertise Contable y Financiero</h2>
+
+            <div class="content-box">
+                <h3>Tareas Clave de un Auxiliar Contable</h3>
+                <p>Como auxiliar contable, mis responsabilidades y habilidades se centran en el soporte fundamental de las operaciones financieras, asegurando la precisión y el orden de los registros. Algunas de las tareas que puedo realizar incluyen:</p>
+                <ul>
+                    <li>**Registro de Transacciones:** Ingreso de facturas de compra y venta, recibos de caja, comprobantes de egreso y otros documentos contables en el sistema.</li>
+                    <li>**Conciliaciones Bancarias:** Comparación de los registros contables de la empresa con los extractos bancarios para identificar y corregir diferencias.</li>
+                    <li>**Elaboración de Comprobantes:** Preparación de comprobantes de diario, egreso e ingreso, asegurando la correcta imputación de cuentas.</li>
+                    <li>**Organización de Documentación:** Clasificación y archivo físico y digital de documentos contables para facilitar auditorías y consultas.</li>
+                    <li>**Soporte en Cierres Contables:** Asistencia en la preparación de balances de prueba y otros informes para los cierres mensuales y anuales.</li>
+                    <li>**Gestión de Cuentas por Pagar y Cobrar:** Seguimiento de pagos a proveedores y cobros a clientes, manteniendo los registros actualizados.</li>
+                    <li>**Uso de Software Contable:** Manejo de herramientas y sistemas contables para el registro y procesamiento de la información.</li>
+                </ul>
+                <p>Estas tareas son esenciales para mantener la salud financiera de cualquier negocio y son la base sobre la cual se construyen análisis financieros más complejos.</p>
+            </div>
+
+            <div class="content-box">
+                <h3>Principios Fundamentales de la Contabilidad</h3>
+                <p>
+                    La contabilidad es el lenguaje de los negocios. Se basa en una serie de principios y normas que aseguran que la información financiera sea relevante, fiable y comparable. Algunos de los principios más importantes incluyen la entidad económica, el negocio en marcha, el costo histórico, la realización y la revelación suficiente. Estos principios guían el registro de transacciones y la preparación de estados financieros, proporcionando una imagen fiel de la situación económica de una entidad.
+                </p>
+                <p>
+                    Entender estos fundamentos es crucial para cualquier persona que desee interpretar los informes financieros, ya sean propietarios de negocios, inversionistas o estudiantes. La adherencia a estos principios garantiza la transparencia y la credibilidad de la información contable, siendo la base para la toma de decisiones estratégicas.
+                </p>
+            </div>
+
+            <div class="content-box">
+                <h3>La Importancia de los Estados Financieros</h3>
+                <p>
+                    Los estados financieros son el producto final del proceso contable y herramientas vitales para la toma de decisiones. Los principales son el Balance General (o Estado de Situación Financiera), el Estado de Resultados (o Estado de Ganancias y Pérdidas), el Estado de Flujos de Efectivo y el Estado de Cambios en el Patrimonio.
+                </p>
+                <p>
+                    El Balance General muestra la posición financiera en un momento dado (activos, pasivos y patrimonio). El Estado de Resultados presenta el rendimiento de la empresa durante un período (ingresos y gastos). El Estado de Flujos de Efectivo detalla cómo se genera y utiliza el efectivo. Juntos, ofrecen una visión integral de la salud financiera de una organización, permitiendo evaluar su solvencia, liquidez y rentabilidad.
+                </p>
+            </div>
+
+            <div class="content-box">
+                <h3>Contabilidad de Costos: Una Herramienta Clave para la Gestión</h3>
+                <p>
+                    La contabilidad de costos es una rama de la contabilidad que se enfoca en el registro, análisis y control de los costos de producción y operación de una empresa. Su objetivo principal es determinar el costo de los productos o servicios, lo que es fundamental para la fijación de precios, la evaluación de la rentabilidad y la toma de decisiones estratégicas.
+                </p>
+                <p>
+                    Permite a las empresas identificar dónde se están gastando los recursos, optimizar procesos y mejorar la eficiencia. Conceptos como costos fijos, costos variables, punto de equilibrio y presupuestos son esenciales en esta área, brindando a la gerencia la información necesaria para una gestión efectiva y la maximización de beneficios.
+                </p>
+            </div>
+
+            <div class="content-box">
+                <h3>Impuestos y su Relevancia en la Contabilidad</h3>
+                <p>
+                    La gestión fiscal es un componente crítico de la contabilidad. Implica el cálculo, la declaración y el pago de impuestos de acuerdo con las leyes y regulaciones tributarias de cada jurisdicción. Una correcta planificación fiscal puede significar ahorros significativos para una empresa o individuo, mientras que el incumplimiento puede acarrear multas y sanciones severas.
+                </p>
+                <p>
+                    Los contadores juegan un papel fundamental en asegurar que las empresas cumplan con sus obligaciones tributarias, minimicen su carga impositiva de forma legal y se mantengan actualizados sobre los constantes cambios en la legislación fiscal. Mi experiencia en este campo asegura que mis clientes naveguen el complejo panorama tributario con confianza.
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="https://placehold.co/800x450/28a745/ffffff?text=Auxiliar+Contable+Digital" alt="Imagen de un auxiliar contable trabajando con documentos y herramientas digitales, simbolizando el aprendizaje y la eficiencia.">
+            </div>
+            <p class="text-center text-gray-600 text-sm">
+                Comprometido con la excelencia en el análisis financiero y la gestión contable, adaptándome a las nuevas tecnologías.
+            </p>
+        </section>
+
+        <section id="contact">
+            <h2>Hablemos</h2>
+            <p class="text-center text-lg mb-8">Estoy disponible para nuevos proyectos y colaboraciones. ¡No dudes en contactarme!</p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:alejoardila225@gmail.com">alejoardila225@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <p><a href="https://www.linkedin.com/in/tuperfil/" target="_blank" rel="noopener noreferrer">linkedin.com/in/tuperfil</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Teléfono</h3>
+                    <p>+57 3056343683</p>
+                </div>
+            </div>
+
+            <form action="#" method="POST">
+                <h3>Envía un Mensaje</h3>
+                <input type="text" name="name" placeholder="Tu Nombre" required class="rounded-md">
+                <input type="email" name="email" placeholder="Tu Correo Electrónico" required class="rounded-md">
+                <input type="text" name="subject" placeholder="Asunto (Opcional)" class="rounded-md">
+                <textarea name="message" placeholder="Tu Mensaje" rows="5" required class="rounded-md"></textarea>
+                <button type="submit" class="rounded-md">Enviar Mensaje</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>Conéctate conmigo en:</p>
+            <p>Email: **alejoardila225@gmail.com** | Teléfono: **+57 3056343683** | LinkedIn: **tuperfil_linkedin**</p>
+            <p>&copy; 2025 Alejandro Ardila. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <button id="back-to-top" title="Volver arriba">&#9650;</button>
+
+    <script>
+        // JavaScript para desplazamiento suave de la navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Ajusta el scroll para tener en cuenta la barra de navegación fija
+                    const offsetTop = targetElement.offsetTop - document.querySelector('nav').offsetHeight;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Actualiza la clase 'active' en la navegación
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // JavaScript para la animación de aparición de secciones al hacer scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Cuando el 10% de la sección es visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Deja de observar una vez que ha aparecido
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section); // Empezar a observar la sección
+        });
+
+        // JavaScript para el botón "Volver arriba"
+        const backToTopButton = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Muestra el botón después de 300px de scroll
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // JavaScript para resaltar el enlace activo en la navegación al hacer scroll
+        const navLinks = document.querySelectorAll('nav a');
+        const sectionsForActiveLink = document.querySelectorAll('section[id]'); // Obtiene todas las secciones con ID
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sectionsForActiveLink.forEach(section => {
+                const sectionTop = section.offsetTop - document.querySelector('nav').offsetHeight;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Asegurar que el enlace "Inicio" esté activo al cargar la página si está en la parte superior
+        window.addEventListener('load', () => {
+            if (window.scrollY === 0) {
+                document.querySelector('nav a[href="#hero"]').classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
